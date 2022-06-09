@@ -1,0 +1,138 @@
+<!DOCTYh3E html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+		<title>Test</title>
+		<link rel="icon" 
+			type="image/jpeg" 
+			href="/content/icon/icon.jpg">
+		<link rel="stylesheet" href="style.css">
+		<script src="script.js"></script>
+	<head>
+	<body onload="generate()">
+		<audio id="audio" controls autoplay="true" src="audio.mp3"> </audio>
+		
+		
+		
+		<button onClick="touchStarted()"> Click to start Visualizer </button>
+		
+		<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+			<defs>
+				<pattern id="bg" x="0" y="0" width="1" height="1"
+					   viewBox="0 0 256 256" preserveAspectRatio="xMidYMid slice">
+					<image width="256" height="256" xlink:href="thingy.webp"/>
+				</pattern>
+				
+				<filter id="neon-glow" filterUnits="userSpaceOnUse"
+						x="-50%" y="-50%" width="200%" height="200%">
+				   <!-- blur the text at different levels-->
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur5"/>
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur10"/>
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur20"/>
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="blur30"/>
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="50" result="blur50"/>
+				  <!-- merge all the blurs except for the first one -->
+				  <feMerge result="blur-merged">
+					<feMergeNode in="blur10"/>
+					<feMergeNode in="blur20"/>
+					<feMergeNode in="blur30"/>
+					<feMergeNode in="blur50"/>
+				  </feMerge>
+				  <!-- recolour the merged blurs-->
+				  <feColorMatrix result="red-blur" in="blur-merged" type="matrix"
+								 values="1 0 0 0 0
+										 0 0.06 0 0 0
+										 0 0 0.44 0 0
+										 0 0 0 0.1 0" />
+				  <feMerge>
+					<feMergeNode in="red-blur"/>       <!-- largest blurs coloured red -->
+					<feMergeNode in="blur5"/>          <!-- smallest blur left white -->
+					<feMergeNode in="SourceGraphic"/>  <!-- original white text -->
+				  </feMerge>
+				</filter>
+				
+				<filter id="neon-glow1" filterUnits="userSpaceOnUse"
+						x="-50%" y="-50%" width="200%" height="200%">
+				   <!-- blur the text at different levels-->
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur5"/>
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur10"/>
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur20"/>
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="blur30"/>
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="50" result="blur50"/>
+				  <!-- merge all the blurs except for the first one -->
+				  <feMerge result="blur-merged">
+					<feMergeNode in="blur10"/>
+					<feMergeNode in="blur20"/>
+					<feMergeNode in="blur30"/>
+					<feMergeNode in="blur50"/>
+				  </feMerge>
+				  <!-- recolour the merged blurs-->
+				  <feColorMatrix result="red-blur2" in="blur-merged" type="matrix"
+								 values="1 0 0 0 0
+										 0 0.06 0 0 0
+										 0 0 0.44 0 0
+										 0 0 0 0.2 0" />
+				  <feMerge>
+					<feMergeNode in="red-blur2"/>       <!-- largest blurs coloured red -->
+					<feMergeNode in="blur5"/>          <!-- smallest blur left white -->
+					<feMergeNode in="SourceGraphic"/>  <!-- original white text -->
+				  </feMerge>
+				</filter>
+				
+				<filter id="neon-glow2" filterUnits="userSpaceOnUse"
+						x="-50%" y="-50%" width="200%" height="200%">
+				   <!-- blur the text at different levels-->
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur5"/>
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur10"/>
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur20"/>
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="blur30"/>
+				  <feGaussianBlur in="SourceGraphic" stdDeviation="50" result="blur50"/>
+				  <!-- merge all the blurs except for the first one -->
+				  <feMerge result="blur-merged">
+					<feMergeNode in="blur10"/>
+					<feMergeNode in="blur20"/>
+					<feMergeNode in="blur30"/>
+					<feMergeNode in="blur50"/>
+				  </feMerge>
+				  <!-- recolour the merged blurs-->
+				  <feColorMatrix result="red-blur3" in="blur-merged" type="matrix"
+								 values="1 0 0 0 0
+										 0 0.06 0 0 0
+										 0 0 0.44 0 0
+										 0 0 0 0.35 0" />
+				  <feMerge>
+					<feMergeNode in="red-blur3"/>       <!-- largest blurs coloured red -->
+					<feMergeNode in="blur5"/>          <!-- smallest blur left white -->
+					<feMergeNode in="SourceGraphic"/>  <!-- original white text -->
+				  </feMerge>
+				</filter>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</defs>
+			<rect width="100%" height="100%" fill="dark-gray"/>
+			<g id="group" width="500" height="500" style="transform-origin: center;">
+				<path id="path7" style="fill: rgb(255, 255, 255); stroke: rgb(0, 0, 0); stroke-width: 0px; filter: url(#neon-glow2);" d=" "></path> <!-- Gark Green -->
+				<path id="path6" style="fill: rgb(  0, 255,   0); stroke: rgb(0, 0, 0); stroke-width: 0px; filter: url(#neon-glow2);" d=" "></path> <!-- Green -->
+				<path id="path5" style="fill: rgb(  0, 255, 255); stroke: rgb(0, 0, 0); stroke-width: 0px; filter: url(#neon-glow2);" d=" "></path> <!-- Light blue -->
+				<path id="path4" style="fill: rgb(  0,   0, 255); stroke: rgb(0, 0, 0); stroke-width: 0px; filter: url(#neon-glow1);" d=" "></path> <!-- Blue -->
+				<path id="path3" style="fill: rgb(255,   0,   0); stroke: rgb(0, 0, 0); stroke-width: 0px; filter: url(#neon-glow1);" d=" "></path> <!-- Red -->
+				<path id="path2" style="fill: rgb(255, 255,  51); stroke: rgb(0, 0, 0); stroke-width: 0px; filter: url(#neon-glow);" d=" "></path> <!-- Yellow -->
+				<path id="path1" style="fill: rgb(250, 250, 250); stroke: rgb(0, 0, 0); stroke-width: 0px; filter: url(#neon-glow);" d=" "></path> <!-- White -->
+				
+				
+				<ellipse style="fill: url(#bg); stroke: rgb(0, 0, 0); stroke-width: 0px;" cx="250" cy="250" rx="100" ry="100"></ellipse>
+			</g>
+			
+		</svg>
+		
+	</body>
+</html>
